@@ -51,15 +51,13 @@ export const deletePaletaController = async (req, res) => {
 
 export const passwordPaletaController =  async (req, res) => {
   if (seguranca[0] == false) {
-    const senhaParams = req.params;
-    const senha = senhaParams.senha;
-    const token = senhaParams.token;
+    const {senha,token} = req.params;
     seguranca[0] = await passwordPaletaService(senha);
     if (seguranca[0] == true) {
       seguranca[1] = token;
       setTimeout(() => {
         seguranca[0] = false;
-        console.log('senha expirada');
+        console.log('Senha expirada');
         seguranca[1] = '';
       }, 1800000);
       return res.send({
@@ -70,8 +68,7 @@ export const passwordPaletaController =  async (req, res) => {
       res.status(400).send({ mensagem: 'Senha inválida !' });
     }
   } else {
-    const senhaParams = req.params;
-    const token = senhaParams.token;
+    const {token} = req.params;
     if (seguranca[1] == token) {
       seguranca[0] = false;
       seguranca[1] = '';

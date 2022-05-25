@@ -46,10 +46,8 @@ export const deletePaletaService = async (id) => {
   };
 
 export const passwordPaletaService = async (resposta) => {
-  const password = "admin123";
-  // const password = await Password.findById("628c42945bacae58657f93e6")
-  // console.log(password.token)
-  const verificador = resposta == password;
+  const password = await Password.findById("628e5a039ff17a0e3eeeb5bf");
+  const verificador = resposta == password.token;
   
   return verificador;
 };
