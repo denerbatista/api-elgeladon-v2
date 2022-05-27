@@ -1,4 +1,4 @@
-import { Carrinho } from '../models/Carrinho.js';
+import { Carrinho } from '../models/carrinho.js';
 
 export const findAllCarrinhoService = async () => {
   const allCarrinho = await Carrinho.find();
