@@ -1,4 +1,4 @@
-import { seguranca } from '../controllers/paletas.controller.js';
+import { seguranca } from '../controllers/seguranca.controller.js';
 
 export const validPasswordToken = async (req, res, next) => {
   const { token } = req.params;
